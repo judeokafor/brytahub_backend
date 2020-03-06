@@ -13,6 +13,7 @@ import { UserModule } from './components/user/user.module';
     MongooseModule.forRoot('mongodb://localhost/nest-backend', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useFindAndModify: false,
     }),
     UserModule,
   ],
