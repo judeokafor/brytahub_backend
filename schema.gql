@@ -3,19 +3,40 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+input ImageUpload {
+  file: Upload!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type LogInType {
+  token: String!
+  isLoggedIn: Boolean!
+}
+
 type Mutation {
   createUser(input: UserInput!): UserType!
+  loginUser(input: LoginInput!): LogInType!
+  singleUpload(file: Upload!): Boolean!
   updateUser(input: UserInput!, id: String!): UserType!
   deleteUser(id: String!): UserType!
 }
 
 type Query {
   users: [UserType!]!
+  singleUser(id: String!): UserType!
 }
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
 
 input UserInput {
   firstName: String
   lastName: String
+  imageUrl: String
   email: String!
   password: String!
   role: String = "student"

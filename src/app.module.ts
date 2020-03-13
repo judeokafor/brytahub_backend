@@ -9,6 +9,8 @@ import { UserModule } from './components/user/user.module';
   imports: [
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
+      uploads: false,
+      context: ({ req, res }) => ({ req, res }),
     }),
     MongooseModule.forRoot('mongodb://localhost/nest-backend', {
       useNewUrlParser: true,

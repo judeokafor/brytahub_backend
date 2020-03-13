@@ -8,3 +8,9 @@ export interface IUser extends Document {
   readonly password: string;
   readonly role?: string;
 }
+export interface IDecodedUser {
+  readonly id: string;
+  readonly email: string;
+  readonly role?: string;
+  readonly exp: string;
+}

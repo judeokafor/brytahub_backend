@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { UserType } from './dto/create-user.dto';
 import { IUser } from './interfaces/user.interface';
-import { UserInput } from './input-user.input';
+import { UserInput } from './inputs/input-user.input';
 @Injectable()
 export class UserService {
   constructor(@InjectModel('User') private userModel: Model<IUser>) {}
@@ -19,6 +19,9 @@ export class UserService {
 
   async findOne(id: string): Promise<UserType> {
     return await this.userModel.findOne({ _id: id });
+  }
+  async findByEmail(email: string): Promise<UserType> {
+    return await this.userModel.findOne({ email });
   }
 
   async delete(id: string): Promise<UserType> {
