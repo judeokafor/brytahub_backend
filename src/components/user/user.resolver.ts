@@ -60,9 +60,9 @@ export class UserResolver {
     }
   }
 
-  @Mutation(() => Boolean)
+  @Mutation(() => Boolean, { nullable: true })
   async singleUpload(
-    @Arg('file', () => GraphQLUpload) file: FileUpload,
+    @Args({ name: 'file', type: () => GraphQLUpload }) file: FileUpload,
   ): Promise<boolean> {
     console.log(file);
     return true;

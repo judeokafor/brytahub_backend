@@ -20,7 +20,7 @@ type LogInType {
 type Mutation {
   createUser(input: UserInput!): UserType!
   loginUser(input: LoginInput!): LogInType!
-  singleUpload(file: Upload!): Boolean!
+  singleUpload(file: Upload!): Boolean
   updateUser(input: UserInput!, id: String!): UserType!
   deleteUser(id: String!): UserType!
 }
